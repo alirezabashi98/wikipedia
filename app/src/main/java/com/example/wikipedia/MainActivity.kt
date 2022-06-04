@@ -50,6 +50,14 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        binding.bottomNavigationMain.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.menu_explore -> {}
+                R.id.menu_trend -> {}
+                R.id.menu_profile -> {}
+            }
+            true
+        }
 
     }
 }
