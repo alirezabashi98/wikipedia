@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.wikipedia.R
 import com.example.wikipedia.databinding.FragmentProfileBinding
+import com.google.android.material.card.MaterialCardView
 
 class ProfileFragment : Fragment() {
 
@@ -15,13 +17,18 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val item = view.findViewById<MaterialCardView>(R.id.cardMain)
+        item.setOnLongClickListener {
+            item.isChecked =  !item.isChecked
+            true
+        }
 
     }
 
