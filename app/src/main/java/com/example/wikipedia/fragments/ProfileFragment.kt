@@ -24,11 +24,6 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val item = view.findViewById<MaterialCardView>(R.id.cardMain)
-        item.setOnLongClickListener {
-            item.isChecked =  !item.isChecked
-            true
-        }
 
     }
 
