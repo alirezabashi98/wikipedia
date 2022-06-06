@@ -1,13 +1,17 @@
 package com.example.wikipedia.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.wikipedia.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.wikipedia.adapter.SkillsAdapter
 import com.example.wikipedia.databinding.FragmentProfileBinding
-import com.google.android.material.card.MaterialCardView
+import com.example.wikipedia.model.SkillsModel
+import com.example.wikipedia.utility.getDataItemSkills
 
 class ProfileFragment : Fragment() {
 
@@ -24,7 +28,16 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().setRecyclerSkills()
+    }
 
+    private fun Context.setRecyclerSkills() {
+        binding.recyclerSkills.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+
+        val listSkills = getDataItemSkills()
+
+        binding.recyclerSkills.adapter = SkillsAdapter(listSkills as ArrayList<SkillsModel>)
     }
 
 }

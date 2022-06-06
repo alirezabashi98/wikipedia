@@ -53,4 +53,10 @@ dependencies {
     // glide-transformations
     // https://github.com/wasabeef/glide-transformations
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    // CircleImageView
+    // https://github.com/hdodenhof/CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
 }
