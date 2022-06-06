@@ -8,7 +8,7 @@
         android:id="@+id/recycler_explore"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="10dp"
+        android:paddingBottom="4dp"
         tools:listitem="@layout/item_explore" />
 
 </FrameLayout>

@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 
 fun Context.glideLoadImageUrl(
     url: String,
-    imageView: ImageView
+    imageView: ImageView,
 ) = Glide.with(this).load(url).into(imageView)
 
 fun Fragment.glideLoadImageUrl(

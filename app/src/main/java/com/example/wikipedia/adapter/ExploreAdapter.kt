@@ -3,7 +3,6 @@ package com.example.wikipedia.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wikipedia.databinding.ItemExploreBinding
 import com.example.wikipedia.model.ItemPostModel
@@ -18,7 +17,7 @@ class ExploreAdapter(private val data: ArrayList<ItemPostModel>) :
     ) :
         RecyclerView.ViewHolder(itemExploreView.root) {
 
-        fun setDateItemExplore(itemPost: ItemPostModel) {
+        fun setView(itemPost: ItemPostModel) {
             contxet.glideLoadImageUrl(itemPost.ImageUrl, itemExploreView.imgExploreMain)
             itemExploreView.txtExploreTitle.text = itemPost.Title
             itemExploreView.txtExploreSubtitle.text = itemPost.Subtitle
@@ -34,7 +33,7 @@ class ExploreAdapter(private val data: ArrayList<ItemPostModel>) :
         )
 
     override fun onBindViewHolder(holder: ViewHolderExplore, position: Int) =
-        holder.setDateItemExplore(data[position])
+        holder.setView(data[position])
 
     override fun getItemCount(): Int = data.size
 
