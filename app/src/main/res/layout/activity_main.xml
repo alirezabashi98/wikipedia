@@ -14,11 +14,13 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarMain"
+            app:liftOnScroll="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarMain"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/MyCustomToolBar"
