@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/kotlin_android"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                tools:ignore="ContentDescription" />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolBarShowComplete"
@@ -144,8 +145,9 @@
         android:id="@+id/fabShowComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/collapsingToolBar"
+        app:layout_anchor="@id/appBarShowComplete"
         app:layout_anchorGravity="bottom|end"
-        app:useCompatPadding="true" />
+        app:useCompatPadding="true"
+        tools:ignore="ContentDescription" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
