@@ -59,5 +59,8 @@ dependencies {
     // https://github.com/hdodenhof/CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    // Material Components for Android
+    // implementation 'com.google.android.material:material:<version>'
+    implementation 'com.google.android.material:material:1.6.1'
 
 }
