@@ -16,6 +16,8 @@ import com.example.wikipedia.databinding.FragmentExploreBinding
 import com.example.wikipedia.model.ItemPostModel
 import com.example.wikipedia.utility.getDataItemPost
 
+const val Key_Send_Item_Post = "KeySendItemPost"
+
 class ExploreFragment : Fragment(), ItemEvents {
 
     private lateinit var binding: FragmentExploreBinding
@@ -45,7 +47,9 @@ class ExploreFragment : Fragment(), ItemEvents {
     }
 
     override fun onItemClicked(itemPost: ItemPostModel) {
-        startActivity(Intent(requireActivity(), ShowCompleteExplanationsActivity::class.java))
+        val intent = Intent(requireActivity(), ShowCompleteExplanationsActivity::class.java)
+        intent.putExtra(Key_Send_Item_Post, itemPost)
+        startActivity(intent)
     }
 
     override fun onItemLongClicked(itemPost: ItemPostModel) {

@@ -46,7 +46,9 @@ class TrendFragment : Fragment(),ItemEvents {
     }
 
     override fun onItemClicked(itemPost: ItemPostModel) {
-        startActivity(Intent(requireActivity(), ShowCompleteExplanationsActivity::class.java))
+        val intent = Intent(requireActivity(), ShowCompleteExplanationsActivity::class.java)
+        intent.putExtra(Key_Send_Item_Post, itemPost)
+        startActivity(intent)
     }
 
     override fun onItemLongClicked(itemPost: ItemPostModel) {
