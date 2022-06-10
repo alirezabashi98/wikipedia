@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wikipedia.adapter.ExploreAdapter
+import com.example.wikipedia.adapter.ItemEvents
 import com.example.wikipedia.databinding.FragmentExploreBinding
 import com.example.wikipedia.model.ItemPostModel
 import com.example.wikipedia.utility.getDataItemPost
 
-class ExploreFragment : Fragment() {
+class ExploreFragment : Fragment(), ItemEvents {
 
     private lateinit var binding: FragmentExploreBinding
 
@@ -37,7 +38,16 @@ class ExploreFragment : Fragment() {
 
         val list = getDataItemPost().filter { itemPostModel -> !itemPostModel.isTrend }
 
-        binding.recyclerExplore.adapter = ExploreAdapter(list as ArrayList<ItemPostModel>)
+        binding.recyclerExplore.adapter =
+            ExploreAdapter(list as ArrayList<ItemPostModel>, this@ExploreFragment)
+    }
+
+    override fun onItemClicked(itemPost: ItemPostModel) {
+        toast(itemPost.Title)
+    }
+
+    override fun onItemLongClicked(itemPost: ItemPostModel) {
+
     }
 
 }

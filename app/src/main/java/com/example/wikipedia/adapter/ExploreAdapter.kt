@@ -8,7 +8,10 @@ import com.example.wikipedia.databinding.ItemExploreBinding
 import com.example.wikipedia.model.ItemPostModel
 import com.example.wikipedia.utility.glideLoadImageUrl
 
-class ExploreAdapter(private val data: ArrayList<ItemPostModel>) :
+class ExploreAdapter(
+    private val data: ArrayList<ItemPostModel>,
+    private val itemEvent: ItemEvents
+) :
     RecyclerView.Adapter<ExploreAdapter.ViewHolderExplore>() {
 
     inner class ViewHolderExplore(
@@ -22,6 +25,10 @@ class ExploreAdapter(private val data: ArrayList<ItemPostModel>) :
             itemExploreView.txtExploreTitle.text = itemPost.Title
             itemExploreView.txtExploreSubtitle.text = itemPost.Subtitle
             itemExploreView.txtExploreDetail.text = itemPost.Detail
+
+            itemExploreView.root.setOnClickListener {
+                itemEvent.onItemClicked(itemPost = itemPost)
+            }
         }
 
     }

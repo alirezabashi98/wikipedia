@@ -1,5 +1,6 @@
 package com.example.wikipedia.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +10,10 @@ import com.example.wikipedia.databinding.ItemTrendBinding
 import com.example.wikipedia.model.ItemPostModel
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
-class TrendAdapter(private val data: ArrayList<ItemPostModel>) :
+class TrendAdapter(
+    private val data: ArrayList<ItemPostModel>,
+    private val itemEvent: ItemEvents
+) :
     RecyclerView.Adapter<TrendAdapter.ViewHolderTrend>() {
 
     inner class ViewHolderTrend(
@@ -17,6 +21,7 @@ class TrendAdapter(private val data: ArrayList<ItemPostModel>) :
         var contxet: Context
     ) : RecyclerView.ViewHolder(itemTrendView.root) {
 
+        @SuppressLint("SetTextI18n")
         fun setView(itemPost: ItemPostModel) {
             Glide.with(contxet)
                 .load(itemPost.ImageUrl)
@@ -26,6 +31,9 @@ class TrendAdapter(private val data: ArrayList<ItemPostModel>) :
             itemTrendView.txtTrendSubtitle.text = itemPost.Subtitle
             itemTrendView.txtTrendInsight.text = itemPost.insight
             itemTrendView.txtTrendNumberItem.text = "${adapterPosition + 1}"
+            itemTrendView.root.setOnClickListener {
+                itemEvent.onItemClicked(itemPost = itemPost)
+            }
         }
 
     }

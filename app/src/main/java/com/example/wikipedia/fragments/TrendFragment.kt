@@ -9,12 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wikipedia.adapter.ExploreAdapter
+import com.example.wikipedia.adapter.ItemEvents
 import com.example.wikipedia.adapter.TrendAdapter
 import com.example.wikipedia.databinding.FragmentTrendBinding
 import com.example.wikipedia.model.ItemPostModel
 import com.example.wikipedia.utility.getDataItemPost
 
-class TrendFragment : Fragment() {
+class TrendFragment : Fragment(),ItemEvents {
 
     private lateinit var binding: FragmentTrendBinding
 
@@ -39,7 +40,15 @@ class TrendFragment : Fragment() {
 
         val listTrend = getDataItemPost().filter { itemPostModel -> itemPostModel.isTrend }
 
-        binding.recyclerTrend.adapter = TrendAdapter(listTrend as ArrayList<ItemPostModel>)
+        binding.recyclerTrend.adapter = TrendAdapter(listTrend as ArrayList<ItemPostModel>,this@TrendFragment)
+    }
+
+    override fun onItemClicked(itemPost: ItemPostModel) {
+        toast(itemPost.Title)
+    }
+
+    override fun onItemLongClicked(itemPost: ItemPostModel) {
+
     }
 
 }
