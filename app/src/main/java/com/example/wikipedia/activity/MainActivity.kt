@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
                 R.id.menu_photograph -> {
-                    addFragment(PhotographFragment())
+                    replaceFragmentAddToBackState(PhotographFragment())
                     binding.navigationMain.menu.getItem(1).isChecked = true
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
@@ -115,6 +115,13 @@ class MainActivity : AppCompatActivity() {
         clearAllFragmentInBackState()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame_main_container, fragment)
+        transaction.commit()
+    }
+
+    private fun replaceFragmentAddToBackState(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_main_container, fragment)
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 
