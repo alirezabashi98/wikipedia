@@ -12,10 +12,13 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Wikipedia">
         <activity
-            android:name=".ShowCompleteExplanationsActivity"
+            android:name=".activity.TranslatorActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.ShowCompleteExplanationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

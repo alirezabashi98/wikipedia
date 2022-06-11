@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.wikipedia.ShowCompleteExplanationsActivity
+import com.example.wikipedia.activity.ShowCompleteExplanationsActivity
 import com.example.wikipedia.adapter.ExploreAdapter
 import com.example.wikipedia.adapter.ItemEvents
 import com.example.wikipedia.databinding.FragmentExploreBinding
