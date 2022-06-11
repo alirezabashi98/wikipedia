@@ -5,8 +5,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.wikipedia.databinding.ActivityMainBinding
 import com.example.wikipedia.fragments.ExploreFragment
+import com.example.wikipedia.fragments.PhotographFragment
 import com.example.wikipedia.fragments.ProfileFragment
 import com.example.wikipedia.fragments.TrendFragment
 
@@ -35,9 +37,24 @@ class MainActivity : AppCompatActivity() {
         binding.navigationMain.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_writer -> {
+                    SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Are you sure?")
+                        .setContentText("Won't be able to recover this file!")
+                        .setConfirmText("Yes,delete it!")
+                        .setConfirmButton("ok") { sDialog ->
+                            sDialog.dismissWithAnimation()
+                        }
+                        .setCancelButton(
+                            "Cancel"
+                        ) { sDialog ->
+                            sDialog.dismissWithAnimation()
+                        }
+                        .show()
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
                 R.id.menu_photograph -> {
+                    addFragment(PhotographFragment())
+                    binding.navigationMain.menu.getItem(1).isChecked = true
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
                 R.id.menu_video_maker -> {
@@ -68,18 +85,43 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(ProfileFragment())
                 }
             }
+            resetCheckMenuDrawable()
             true
         }
 
     }
 
     private fun replaceFragment(fragment: Fragment) {
+        clearAllFragmentInBackState()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frame_main_container, fragment)
         transaction.commit()
     }
 
-    private fun firstRun(){
+    private fun addFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.frame_main_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    private fun clearAllFragmentInBackState() {
+        val transaction = supportFragmentManager
+        for (fragment in 0..(transaction.backStackEntryCount)) {
+            transaction.popBackStack()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        resetCheckMenuDrawable()
+    }
+
+    private fun resetCheckMenuDrawable() {
+        binding.navigationMain.menu.getItem(1).isChecked = false
+    }
+
+    private fun firstRun() {
         replaceFragment(ExploreFragment())
         binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
     }

@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/menu_writer"
         android:icon="@drawable/ic_writer"
-        android:title="be a writer" />
+        android:title="be a writer"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_photograph"
+        android:checkable="true"
         android:icon="@drawable/ic_photographer"
-        android:title="be a photographer" />
+        android:title="be a photographer"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_video_maker"
         android:icon="@drawable/ic_video_maker"
-        android:title="be a video maker" />
+        android:title="be a video maker"
+        tools:ignore="HardcodedText" />
     <item
         android:id="@+id/menu_translator"
         android:icon="@drawable/ic_translate"
-        android:title="be a translator" />
+        android:title="be a translator"
+        tools:ignore="HardcodedText" />
 
-    <item android:title="our websites">
+    <item android:title="our websites"
+        tools:ignore="HardcodedText">
         <menu>
             <item
                 android:id="@+id/menu_open_wikipedia"

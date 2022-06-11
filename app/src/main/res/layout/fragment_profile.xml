@@ -106,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I started learning Android programming in 2017, but because I did not have a system, I read Java on my phone and practiced. I got deep into Android programming, I participated in various courses, the most important of which I can mention is Amir Ahmad Adibi Android and Flutter course, and Amir Hassan Mohammadi Android and Flutter course. I am a programmer and I hope to go to the first generation countries soon so that I can develop more and help the world."
+                android:text="I started learning Android programming in 2017, but because I did not have a system, I read Java on my phone and practiced. I got deep into Android programming, I participated in various courses, the most important of which I can mention is Amir Ahmad Adibi Android and Flutter course, and Amir Hossin Mohammadi Android course. I am a programmer and I hope to go to the first generation countries soon so that I can develop more and help the world."
                 android:textSize="14sp"
                 tools:ignore="HardcodedText" />
 
