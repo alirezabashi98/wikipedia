@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.112" />
+        <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/drawable/ic_exit.xml" value="0.112" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/drawable/ic_flutter.xml" value="0.1105" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/drawable/ic_kotlin.xml" value="0.1105" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/drawable/ic_video_maker.xml" value="0.107" />
@@ -23,6 +25,7 @@
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/layout/item_skills.xml" value="0.1718683197947841" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/layout/item_trend.xml" value="0.5" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.209375" />
+        <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/menu/menu_main.xml" value="0.1718683197947841" />
         <entry key="..\:/Users/alireza/StudioProjects/Wikipedia/app/src/main/res/menu/menu_navigation_drawer.xml" value="0.209375" />
       </map>
     </option>

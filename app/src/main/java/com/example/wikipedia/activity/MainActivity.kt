@@ -1,7 +1,11 @@
 package com.example.wikipedia.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -73,9 +77,11 @@ class MainActivity : AppCompatActivity() {
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
                 R.id.menu_open_wikipedia -> {
+                    openWebsite("https://wikipedia.org/")
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
                 R.id.menu_open_wikiMedia -> {
+                    openWebsite("https://www.wikimedia.org/")
                     binding.darawLayoutMain.closeDrawer(GravityCompat.START)
                 }
             }
@@ -98,6 +104,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+    }
+
+    private fun openWebsite(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -133,5 +144,26 @@ class MainActivity : AppCompatActivity() {
     private fun firstRun() {
         replaceFragment(ExploreFragment())
         binding.bottomNavigationMain.selectedItemId = R.id.menu_explore
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    @SuppressLint("ShowToast")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_exit -> {
+                Snackbar.make(binding.root, "Sure you want to get out", Snackbar.LENGTH_LONG)
+                    .setAction("Exit") {
+                        finish()
+                    }
+                    .setActionTextColor(ContextCompat.getColor(this, R.color.white))
+                    .setBackgroundTint(ContextCompat.getColor(this, R.color.blue500))
+                    .show()
+            }
+        }
+        return true
     }
 }
